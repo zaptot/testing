@@ -7,3 +7,5 @@
 # fourth commit
 
 # edit file from 7 point
+
+# edit common file

@@ -5,3 +5,5 @@
 # third commit
 
 # fourth commit
+
+# edit file from 7 point

@@ -1,32 +1,23 @@
-package by.bsu.zaptot.driver;
+package by.bsu.vaskova.testing.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverProvider {
-
+public class Driver {
     private static final String WEBDRIVER_CHROMEDRIVER = "webdriver.chrome.driver";
-    private static final String WEBDRIVER_CHROMEDRIVER_EXE_PATH =
-            "src/main/resources/chromedriver.exe";
+    private static final String WEBDRIVER_CHROMEDRIVER_PATH =
+            "resources/chromedriver.exe";
     private static WebDriver driver;
-    static String currentURL = null;
 
-    private DriverProvider() {
-    }
+    private Driver() { }
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty(WEBDRIVER_CHROMEDRIVER, WEBDRIVER_CHROMEDRIVER_EXE_PATH);
+            System.setProperty(WEBDRIVER_CHROMEDRIVER, WEBDRIVER_CHROMEDRIVER_PATH);
             driver = new ChromeDriver();
         }
         return driver;
     }
-
-    public static String getCurrentUrl(){
-        currentURL = driver.getCurrentUrl();
-        return currentURL;
-    }
-
 
     public static void closeDriver() {
         if (driver != null) {

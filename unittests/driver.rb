@@ -8,7 +8,7 @@ class Driver
   end
 
   def start_driver
-    capabilities = DesiredCapabilities.FIREFOX.copy()
+    capabilities = {'browserName': 'firefox', 'marionette': True, 'acceptInsecureCerts': True}
     Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => capabilities)
   end
 

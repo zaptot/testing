@@ -8,7 +8,8 @@ class Driver
   end
 
   def start_driver
-    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => capability)
+    capabilities = DesiredCapabilities.FIREFOX.copy()
+    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => capabilities)
   end
 
   def set_normal_window_size browser

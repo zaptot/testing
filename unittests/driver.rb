@@ -8,7 +8,7 @@ class Driver
   end
 
   def start_driver
-    Selenium::WebDriver.for :chrome
+    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => capability)
   end
 
   def set_normal_window_size browser

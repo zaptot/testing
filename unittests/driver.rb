@@ -18,7 +18,7 @@ class Driver
     # add a Wind Tunnel perosna to the script. See https://community.perfectomobile.com/series/24692/posts/1048052
     :windTunnelPersona => "Georgia"
     }
-    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => caps)
+    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub")
   end
 
   def set_normal_window_size browser

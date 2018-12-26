@@ -1,35 +1,39 @@
-package by.bsu.vaskova.testing.pages;
+package by.bsu.zaptot.testing.pages;
 
-import by.bsu.vaskova.testing.driver.Driver;
+import by.bsu.zaptot.testing.driver.Driver;
+import com.gargoylesoftware.htmlunit.WaitingRefreshHandler;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FlightsSearchPage {
 
     WebDriver driver;
 
-    @FindBy(id = "FlightOrigin")
+    @FindBy(id = "origin")
     private WebElement fromField;
 
-    @FindBy(id = "FlightDestination")
+    @FindBy(id = "destination")
     private WebElement toField;
 
     @FindBy(id="FlightOutboundDate")
     private WebElement outboundFlight;
 
-    @FindBy(id = "FlightInboundDate")
+    @FindBy(id = "dateDepartureOneWay")
     private WebElement returnFlight;
 
-    @FindBy(className = "evo-button js-evo-bookingbar--submit")
+    @FindBy(className = "btn btn-xl btn-txt btn-theme submit js-ibe-form-sbmt")
     private WebElement searchButton;
 
-    @FindBy(className = "notification-message")
+    @FindBy(id = "dateDepartureOneWay-error")
     private WebElement textError;
 
-    @FindBy(css = "#h1")
+    @FindBy(className = "search-highlight")
     private WebElement title;
 
     @FindBy(id = "site-header")
@@ -50,7 +54,7 @@ public class FlightsSearchPage {
     @FindBy(className = "evo-passenger_select--popup--button js-evo-passenger_select--close")
     private WebElement close_pass;
 
-    @FindBy(className = "evo-flight_toggle--single")
+    @FindBy(id = "journey-go")
     private WebElement one_way;
 
     @FindBy(className = "evo-flight_toggle--return")
@@ -65,10 +69,10 @@ public class FlightsSearchPage {
     @FindBy(className = "btn btn-green ico btn-right ico-buttonicon-add js-ajax-update-click js-multirow-add")
     private WebElement add_flight_button;
 
-    @FindBy(className = "js-site_search--trigger meta_nav--site_search--trigger")
+    @FindBy(className = "open-search js-open-search")
     private WebElement button_with_loupe;
 
-    @FindBy(id = "search")
+    @FindBy(id = "quick-search-input")
     private WebElement search;
 
     public FlightsSearchPage() {

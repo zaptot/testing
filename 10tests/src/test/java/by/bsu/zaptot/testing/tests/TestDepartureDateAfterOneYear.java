@@ -1,13 +1,13 @@
-package by.bsu.vaskova.testing.tests;
+package by.bsu.zaptot.testing.tests;
 
-import by.bsu.vaskova.testing.driver.Driver;
-import by.bsu.vaskova.testing.pages.FlightsSearchPage;
+import by.bsu.zaptot.testing.driver.Driver;
+import by.bsu.zaptot.testing.pages.FlightsSearchPage;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestCannotBeBookedForThePastDate {
+public class TestDepartureDateAfterOneYear {
     private FlightsSearchPage flightsSearch = new FlightsSearchPage();
 
     @BeforeClass
@@ -16,13 +16,13 @@ public class TestCannotBeBookedForThePastDate {
     }
 
     @Test
-    public void testCannotBeBookedForThePastDate() {
+    public void testDepartureDateAfterOneYear() {
         flightsSearch.inputFrom("Moscow");
         flightsSearch.inputTo("Delhi");
         flightsSearch.chooseOneWay();
-        flightsSearch.inputOutboundDate("15/10/2018");
+        flightsSearch.inputOutboundDate("15/01/2020");
         flightsSearch.clickSearchButton();
-        String expectedError = "The departure date has already passed. Please choose a departure date within the next 339 days. (50700)";
+        String expectedError = "The departure date is too far in the future. Select a departure date within the next 360 days. (10721)";
         Assert.assertEquals(expectedError, flightsSearch.error());
     }
 

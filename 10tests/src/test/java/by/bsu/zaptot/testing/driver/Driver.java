@@ -1,4 +1,4 @@
-package by.bsu.vaskova.testing.driver;
+package by.bsu.zaptot.testing.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

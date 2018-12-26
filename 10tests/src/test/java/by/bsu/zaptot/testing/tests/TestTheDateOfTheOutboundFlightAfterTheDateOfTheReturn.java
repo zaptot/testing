@@ -1,13 +1,13 @@
-package by.bsu.vaskova.testing.tests;
+package by.bsu.zaptot.testing.tests;
 
-import by.bsu.vaskova.testing.driver.Driver;
-import by.bsu.vaskova.testing.pages.FlightsSearchPage;
+import by.bsu.zaptot.testing.driver.Driver;
+import by.bsu.zaptot.testing.pages.FlightsSearchPage;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestDepartureDateAfterOneYear {
+public class TestTheDateOfTheOutboundFlightAfterTheDateOfTheReturn {
     private FlightsSearchPage flightsSearch = new FlightsSearchPage();
 
     @BeforeClass
@@ -16,13 +16,13 @@ public class TestDepartureDateAfterOneYear {
     }
 
     @Test
-    public void testDepartureDateAfterOneYear() {
+    public void testTheDateOfTheOutboundFlightAfterTheDateOfTheReturn() {
         flightsSearch.inputFrom("Moscow");
         flightsSearch.inputTo("Delhi");
-        flightsSearch.chooseOneWay();
-        flightsSearch.inputOutboundDate("15/01/2020");
+        flightsSearch.inputOutboundDate("15/05/2019");
+        flightsSearch.inputReturnDate("10/05/2019");
         flightsSearch.clickSearchButton();
-        String expectedError = "The departure date is too far in the future. Select a departure date within the next 360 days. (10721)";
+        String expectedError = "The date of the outbound flight must be before the date of the return flight. Please correct your travel dates. (50400)";
         Assert.assertEquals(expectedError, flightsSearch.error());
     }
 
@@ -30,4 +30,5 @@ public class TestDepartureDateAfterOneYear {
     public static void tearDown() {
         Driver.closeDriver();
     }
+
 }

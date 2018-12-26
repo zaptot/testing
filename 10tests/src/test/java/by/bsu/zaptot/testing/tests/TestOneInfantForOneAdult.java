@@ -1,12 +1,11 @@
-package by.bsu.vaskova.testing.tests;
+package by.bsu.zaptot.testing.tests;
 
-import by.bsu.vaskova.testing.driver.Driver;
-import by.bsu.vaskova.testing.pages.FlightsSearchPage;
+import by.bsu.zaptot.testing.driver.Driver;
+import by.bsu.zaptot.testing.pages.FlightsSearchPage;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
 public class TestOneInfantForOneAdult {
     private FlightsSearchPage flightsSearch = new FlightsSearchPage();

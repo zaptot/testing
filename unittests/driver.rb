@@ -8,8 +8,17 @@ class Driver
   end
 
   def start_driver
-    capabilities = {}
-    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => capabilities)
+    deviceId = 'HT1BET1345GVF2VJ619'
+     
+    caps = {
+    :deviceName            => deviceId,
+    :browser_name          => 'chrome',
+    :javascript_enabled    => true,
+    :takes_screenshot      => true,
+    # add a Wind Tunnel perosna to the script. See https://community.perfectomobile.com/series/24692/posts/1048052
+    :windTunnelPersona => "Georgia"
+    }
+    Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => caps)
   end
 
   def set_normal_window_size browser
